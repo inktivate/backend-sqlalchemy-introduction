@@ -33,7 +33,7 @@ following example.
 
 ## Example
 
-SQL table definition and query without database abstraction
+SQL table definition and query without database abstraction.
 ```python
 import sqlite3
 
@@ -103,7 +103,7 @@ asked to read the respective section of each link, not the whole page.
 
 
 ## Instructions
-1. Complete the readings
+1. Complete the readings.
 2. Fork this repository and checkout a new branch to be merged with the existing
 grading branch.
 3. Define functions to configure and instantiate instances of the Engine, Session,
