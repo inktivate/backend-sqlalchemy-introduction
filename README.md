@@ -27,7 +27,8 @@ statements. You do not have to write SQL statements yourself, but to be clear,
 we are not avoiding SQL. To use ORMs such as SQLAlchemy effectively, it is
 necessary to understand relational data modeling and SQL, but learning an ORM
 is an alternate if not gentler approach to learning relational data management
-than SQL itself for reasons that are hopefully evident in the following example.
+than SQL itself for reasons that will hopefully become clearer in the
+following example.
 
 
 ## Example
