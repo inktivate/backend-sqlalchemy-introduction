@@ -9,6 +9,10 @@
 # Also note that the pattern dir/* does not match files under sub-directories of dir/.
 
 # The second pattern is essential for ensuring that .gitattributes itself is not encrypted.
-* filter=git-crypt diff=git-crypt
+commments_solution.py filter=git-crypt diff=git-crypt
+database_solution.py filter=git-crypt diff=git-crypt
+posts_solution.py filter=git-crypt diff=git-crypt
+tags_solution.py filter=git-crypt diff=git-crypt
+users_solution.py filter=git-crypt diff=git-crypt
 .gitattributes !filter !diff
 __init__.py !filter !diff
