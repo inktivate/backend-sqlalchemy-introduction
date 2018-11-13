@@ -6,8 +6,11 @@ name = "pypi"
 [packages]
 sqlalchemy = "*"
 click = "*"
+mimesis = "*"
+python-dotenv = "*"
 
 [dev-packages]
+mimesis = "*"
 
 [requires]
 python_version = "3.7.1"
