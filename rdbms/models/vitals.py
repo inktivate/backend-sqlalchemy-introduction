@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, ForeignKey
+from sqlalchemy import Column, Integer, ForeignKey, Float
 from .database import Base
 
 
@@ -8,5 +8,5 @@ class vital_model(Base):
 
     id = Column(Integer, primary_key=True)
     user_id = Column(ForeignKey('users.id'))
-    height = Column(Integer)
+    height = Column(Float)
     weight = Column(Integer)

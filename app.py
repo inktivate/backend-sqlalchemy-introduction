@@ -5,19 +5,25 @@ from rdbms.models.accounts import account_model
 from rdbms.models.addresses import address_model
 from rdbms.models.education import education_model
 from rdbms.models.employments import employment_model
+from rdbms.models.languages import language_model
+from rdbms.models.profiles import profile_model
+from rdbms.models.telephones import telephone_model
+from rdbms.models.vitals import vital_model
 from dotenv import load_dotenv
-from mimesis import Person, Internet, Address, Datetime, Business
+from mimesis import Person, Address, Datetime, Business
 import os
 import random
-import string
 
 account_id = 0
 address_id = 0
 education_id = 0
 employment_id = 0
+language_id = 0
+profile_id = 0
+telephone_id = 0
+vital_id = 0
 
 person = Person('en')
-internet = Internet('en')
 address = Address('en')
 business = Business('en')
 datetime = Datetime('en')
@@ -46,6 +52,10 @@ def create_data(session):
             generate_address(session, i)
             generate_education(session, i)
             generate_employment(session, i)
+            generate_language(session, i)
+            generate_profile(session, i)
+            generate_telephone(session, i)
+            generate_vital(session, i)
 
 
 def generate_user(session, user_id):
@@ -126,6 +136,51 @@ def generate_employment(session, user_id):
     )
     session.add(new_employment)
     employment_id += 1
+
+
+def generate_language(session, user_id):
+    global language_id
+    new_language = language_model(
+        id=language_id,
+        user_id=user_id,
+        language=person.language()
+    )
+    session.add(new_language)
+    language_id += 1
+
+
+def generate_profile(session, user_id):
+    global profile_id
+    new_profile = profile_model(
+        id=profile_id,
+        user_id=user_id,
+        nationality=person.nationality()
+    )
+    session.add(new_profile)
+    profile_id += 1
+
+
+def generate_telephone(session, user_id):
+    global telephone_id
+    new_telephone = telephone_model(
+        id=telephone_id,
+        user_id=user_id,
+        telephone_number=person.telephone()
+    )
+    session.add(new_telephone)
+    telephone_id += 1
+
+
+def generate_vital(session, user_id):
+    global vital_id
+    new_vital = vital_model(
+        id=vital_id,
+        user_id=user_id,
+        height=person.height(),
+        weight=person.weight()
+    )
+    session.add(new_vital)
+    vital_id += 1
 
 
 if __name__ == '__main__':
