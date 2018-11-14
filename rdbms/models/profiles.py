@@ -2,7 +2,7 @@ from sqlalchemy import Column, Integer, String, ForeignKey
 from .database import Base
 
 
-class Profile(Base):
+class profile_model(Base):
     """Table of profile entities with inherited CRUD methods."""
     __tablename__ = 'profiles'
 

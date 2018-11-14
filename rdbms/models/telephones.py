@@ -2,7 +2,7 @@ from sqlalchemy import Column, Integer, ForeignKey
 from .database import Base
 
 
-class Telephone(Base):
+class telephone_model(Base):
     """Table of telephone entities with inherited CRUD methods."""
     __tablename__ = 'telephones'
 

@@ -3,14 +3,16 @@ from sqlalchemy.orm import sessionmaker
 from rdbms.models.users import user_model
 from rdbms.models.accounts import account_model
 from rdbms.models.addresses import address_model
+from rdbms.models.education import education_model
 from dotenv import load_dotenv
-from mimesis import Person, Internet, Address, Datetime
+from mimesis import Person, Internet, Address, Datetime, Business
 import os
 import random
 import string
 
 account_id = 0
 address_id = 0
+education_id = 0
 
 
 def main():
@@ -30,13 +32,14 @@ def establish_session():
 
 def create_data(session):
     for i in range(50):
-        generate_person(session, i)
+        generate_user(session, i)
         for y in range(10):
             generate_account(session, i)
             generate_address(session, i)
+            generate_education(session, i)
 
 
-def generate_person(session, user_id):
+def generate_user(session, user_id):
     person = Person('en')
     new_user = user_model(
         id=user_id,
@@ -96,6 +99,23 @@ def generate_address(session, user_id):
     )
     session.add(new_address)
     address_id += 1
+
+
+def generate_education(session, user_id):
+    global education_id
+    business = Business('en')
+    datetime = Datetime('en')
+    new_education = education_model(
+        id=education_id,
+        user_id=user_id,
+        school=business.company(),
+        start_date=datetime.datetime(),
+        end_date=datetime.datetime(),
+        graduated=random.choice([True, False]),
+        gpa=float(random.randint(20, 50))/10
+    )
+    session.add(new_education)
+    education_id += 1
 
 
 if __name__ == '__main__':

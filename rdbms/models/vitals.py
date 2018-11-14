@@ -2,7 +2,7 @@ from sqlalchemy import Column, Integer, ForeignKey
 from .database import Base
 
 
-class Vital(Base):
+class vital_model(Base):
     """Table of vital entities with inherited CRUD methods."""
     __tablename__ = 'vitals'
 

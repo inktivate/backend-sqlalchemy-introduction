@@ -1,8 +1,9 @@
-from sqlalchemy import Column, Integer, String, ForeignKey, DateTime, Float
+from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy import DateTime, Float, Boolean
 from .database import Base
 
 
-class Education(Base):
+class education_model(Base):
     """Table of education entities with inherited CRUD methods."""
     __tablename__ = 'education'
 
@@ -12,5 +13,5 @@ class Education(Base):
     school = Column(String)
     start_date = Column(DateTime)
     end_date = Column(DateTime)
-    graduated = Column(String)
+    graduated = Column(Boolean)
     gpa = Column(Float)
