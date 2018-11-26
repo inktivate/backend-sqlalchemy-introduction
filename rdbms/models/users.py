@@ -2,7 +2,7 @@ from sqlalchemy import Column, Integer, String
 from .database import Base
 
 
-class user_model(Base):
+class UserModel(Base):
     """Table of user entities with inherited CRUD methods."""
     __tablename__ = 'users'
 

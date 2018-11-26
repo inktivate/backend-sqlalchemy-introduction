@@ -2,7 +2,7 @@ from sqlalchemy import Column, Integer, String, ForeignKey, DateTime
 from .database import Base
 
 
-class address_model(Base):
+class AddressModel(Base):
     """Table of address entities with inherited CRUD methods."""
     __tablename__ = 'addresses'
 

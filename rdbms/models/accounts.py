@@ -2,7 +2,7 @@ from sqlalchemy import Column, Integer, String, ForeignKey
 from .database import Base
 
 
-class account_model(Base):
+class AccountModel(Base):
     """Table of account entities with inherited CRUD methods."""
     __tablename__ = 'accounts'
 

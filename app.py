@@ -1,14 +1,14 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from rdbms.models.users import user_model
-from rdbms.models.accounts import account_model
-from rdbms.models.addresses import address_model
-from rdbms.models.education import education_model
-from rdbms.models.employments import employment_model
-from rdbms.models.languages import language_model
-from rdbms.models.profiles import profile_model
-from rdbms.models.telephones import telephone_model
-from rdbms.models.vitals import vital_model
+from rdbms.models.users import UserModel
+from rdbms.models.accounts import AccountModel
+from rdbms.models.addresses import AddressModel
+from rdbms.models.education import EducationModel
+from rdbms.models.employments import EmploymentModel
+from rdbms.models.languages import LanguageModel
+from rdbms.models.profiles import ProfileModel
+from rdbms.models.telephones import TelephoneModel
+from rdbms.models.vitals import VitalModel
 from dotenv import load_dotenv
 from mimesis import Person, Address, Datetime, Business
 import os
@@ -59,7 +59,7 @@ def create_data(session):
 
 
 def generate_user(session, user_id):
-    new_user = user_model(
+    new_user = UserModel(
         id=user_id,
         username=(
             person.name().lower() +
@@ -74,7 +74,7 @@ def generate_user(session, user_id):
 
 def generate_account(session, user_id):
     global account_id
-    new_account = account_model(
+    new_account = AccountModel(
         id=account_id,
         user_id=user_id,
         social_media_url=person.social_media_profile()
@@ -85,7 +85,7 @@ def generate_account(session, user_id):
 
 def generate_address(session, user_id):
     global address_id
-    new_address = address_model(
+    new_address = AddressModel(
         id=address_id,
         user_id=user_id,
         street_address='%s %s %s' % (
@@ -111,7 +111,7 @@ def generate_address(session, user_id):
 
 def generate_education(session, user_id):
     global education_id
-    new_education = education_model(
+    new_education = EducationModel(
         id=education_id,
         user_id=user_id,
         school=person.university(),
@@ -126,7 +126,7 @@ def generate_education(session, user_id):
 
 def generate_employment(session, user_id):
     global employment_id
-    new_employment = employment_model(
+    new_employment = EmploymentModel(
         id=employment_id,
         user_id=user_id,
         company=business.company(),
@@ -140,7 +140,7 @@ def generate_employment(session, user_id):
 
 def generate_language(session, user_id):
     global language_id
-    new_language = language_model(
+    new_language = LanguageModel(
         id=language_id,
         user_id=user_id,
         language=person.language()
@@ -151,7 +151,7 @@ def generate_language(session, user_id):
 
 def generate_profile(session, user_id):
     global profile_id
-    new_profile = profile_model(
+    new_profile = ProfileModel(
         id=profile_id,
         user_id=user_id,
         nationality=person.nationality()
@@ -162,7 +162,7 @@ def generate_profile(session, user_id):
 
 def generate_telephone(session, user_id):
     global telephone_id
-    new_telephone = telephone_model(
+    new_telephone = TelephoneModel(
         id=telephone_id,
         user_id=user_id,
         telephone_number=person.telephone()
@@ -173,7 +173,7 @@ def generate_telephone(session, user_id):
 
 def generate_vital(session, user_id):
     global vital_id
-    new_vital = vital_model(
+    new_vital = VitalModel(
         id=vital_id,
         user_id=user_id,
         height=person.height(),

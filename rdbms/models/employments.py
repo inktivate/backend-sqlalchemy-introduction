@@ -2,7 +2,7 @@ from sqlalchemy import Column, Integer, String, ForeignKey, DateTime
 from .database import Base
 
 
-class employment_model(Base):
+class EmploymentModel(Base):
     """Table of employment entities with inherited CRUD methods."""
     __tablename__ = 'employments'
 

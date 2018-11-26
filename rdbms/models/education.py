@@ -3,7 +3,7 @@ from sqlalchemy import DateTime, Float, Boolean
 from .database import Base
 
 
-class education_model(Base):
+class EducationModel(Base):
     """Table of education entities with inherited CRUD methods."""
     __tablename__ = 'education'
 
